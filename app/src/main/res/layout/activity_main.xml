@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="374dp"
+        android:layout_height="280dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/empPhoto"-->
+        <!--            android:layout_width="200dp"-->
+        <!--            android:layout_height="200dp"-->
+        <!--                android:src="@drawable/img"-->
+        <!--            ></ImageView>-->
+        <LinearLayout
+            android:id="@+id/imgviewLay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/empPhoto"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                app:strokeColor="@color/purple_700"
+                app:strokeWidth="3dp"></com.google.android.material.imageview.ShapeableImageView>
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgviewLay"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="end|bottom"
+            android:layout_marginStart="-20dp"
+            android:layout_marginTop="175dp"
+            android:layout_marginEnd="121dp"
+            android:layout_marginBottom="-20dp"
+            android:contentDescription="@string/submit"
+            android:src="@drawable/camera"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgviewLay"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="end|bottom"
+            android:layout_marginTop="176dp"
+            android:layout_marginEnd="193dp"
+            android:layout_marginBottom="-60dp"
+            android:contentDescription="@string/submit"
+            android:src="@drawable/gallery"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="Name"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <EditText
+            android:layout_weight="1"
+            android:hint="Name"
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@+id/lname">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="Age"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <EditText
+            android:layout_weight="1"
+            android:hint="Age"
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ldob"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@+id/lage">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="DOB"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <EditText
+            android:layout_weight="1"
+            android:hint="DOB"
+            android:id="@+id/dob"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </EditText>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lbtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@+id/ldob">
+        <Button android:id="@+id/btnAdd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="Add Employee"></Button>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
