@@ -7,6 +7,20 @@
     android:scrollbars="vertical"
     tools:context=".MainActivity">
 
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="156dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="392dp"
@@ -193,11 +207,13 @@
         app:layout_constraintRight_toRightOf="parent"
         android:weightSum="3"
         app:layout_constraintTop_toBottomOf="@+id/ldob">
+
         <Button android:id="@+id/btnAdd"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:onClick="btnAddEmployee"
             android:text="Add Employee"></Button>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

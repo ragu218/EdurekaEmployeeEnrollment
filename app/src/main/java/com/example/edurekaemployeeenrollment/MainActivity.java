@@ -16,11 +16,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.edurekaemployeeenrollment.Model.Employee;
@@ -217,7 +221,8 @@ public class MainActivity extends AppCompatActivity {
     APIInterface apiInterface;
     Gson gson = new Gson();
     public void btnAddEmployee(View view) throws ParseException {
-
+        ProgressBar progressBar=(ProgressBar)findViewById(R.id.progressBar2);
+        progressBar.setVisibility(View.VISIBLE);
         Employee employee=new Employee();
         employee.setEmployeeName(Name.getText().toString());
         employee.setAge(Integer.parseInt( Age.getText().toString()));
@@ -242,20 +247,57 @@ try {
         @Override
         public void onResponse(Call<String> call, Response<String> response) {
             String s = response.body();
+            progressBar.setVisibility(View.INVISIBLE) ;
             Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
+
         }
 
 
         @Override
         public void onFailure(Call<String> call, Throwable t) {
+            progressBar.setVisibility(View.INVISIBLE) ;
             Toast.makeText(MainActivity.this, "Error Loading" + t.fillInStackTrace().toString(), Toast.LENGTH_SHORT).show();
             Log.d(MYTAG, t.fillInStackTrace().toString());
+
         }
     });
 }catch (Exception e)
 {
+    progressBar.setVisibility(View.INVISIBLE) ;
     Log.d(MYTAG, e.fillInStackTrace().toString());
 }
-
+        progressBar.setVisibility(View.INVISIBLE) ;
     }
+
+
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId()==R.id.lisEmployees){
+            Intent intent=new Intent(MainActivity.this,EmployeeList.class);
+            startActivity(intent);
+        }
+//
+//        if (item.getItemId()==R.id.instructions){
+//            Toast.makeText(this, "Hnstructions Item", Toast.LENGTH_SHORT).show();
+//        }
+//
+//        if (item.getItemId()==R.id.hotels){
+//            Toast.makeText(this, "Hotels Item", Toast.LENGTH_SHORT).show();
+//        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }
